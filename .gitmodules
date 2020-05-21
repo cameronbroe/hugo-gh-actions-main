@@ -3,4 +3,4 @@
 	url = https://github.com/budparr/gohugo-theme-ananke.git
 [submodule "public"]
 	path = public
-	url = https://github.com/cameronbroe/hugo-gh-actions-built
+	url = https://github.com/cameronbroe/hugo-gh-actions-built.git
