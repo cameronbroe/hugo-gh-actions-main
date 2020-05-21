@@ -2,7 +2,7 @@ name: Hugo Build and Deploy
 
 on:
   push:
-    branches: [ master, actions-dev ]
+    branches: [ master ]
 
 jobs:
   build:
