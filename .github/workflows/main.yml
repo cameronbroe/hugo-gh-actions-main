@@ -33,11 +33,11 @@ jobs:
       run: git config --global user.name "Cameron Roe"
 
     - name: Configure Git email
-      run: git config --global user.email "cameron@cameronbroe.com"
+      run: git config --global user.email "cameron@cameronbroe.com" foo
 
     - name: Push Hugo build in public submodule
       run: |
         cd public/
         git add .
-        git commit -am "build for ${{ github.sha }}"
-        git push --force -u origin master
+        git commit -am "build for ${{ github.sha }}" || echo "Website build is identical, nothing to commit"
+        git push -u origin master
