@@ -40,4 +40,4 @@ jobs:
         cd public/
         git add .
         git commit -am "build for ${{ github.sha }}"
-        git push -u origin master
+        git push --force -u origin master
