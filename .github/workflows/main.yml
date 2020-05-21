@@ -33,5 +33,6 @@ jobs:
     - name: Push Hugo build in public submodule
       run: |
         cd public/
+        git add .
         git commit -am "build for ${{ github.sha }}"
-        git push -u origin master
+        git push -u origin gh-pages
