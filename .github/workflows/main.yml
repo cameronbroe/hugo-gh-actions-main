@@ -24,8 +24,14 @@ jobs:
     - name: Run Hugo build
       run: ./hugo
 
+    - name: Configure Git name
+      run: git config --global user.name "Cameron Roe"
+
+    - name: Configure Git email
+      run: git config --global user.email "cameron@cameronbroe.com"
+
     - name: Push Hugo build in public submodule
       run: |
         cd public/
-        git commit -m "build for ${{ github.sha }}"
+        git commit -am "build for ${{ github.sha }}"
         git push -u origin master
