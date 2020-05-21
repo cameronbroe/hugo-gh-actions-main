@@ -35,4 +35,4 @@ jobs:
         cd public/
         git add .
         git commit -am "build for ${{ github.sha }}"
-        git push -u origin gh-pages
+        git push -u origin master
