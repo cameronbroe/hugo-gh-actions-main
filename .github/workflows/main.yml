@@ -1,0 +1,34 @@
+name: Hugo Build and Deploy
+
+on:
+  push:
+    branches: [ master, actions-dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Initialize Git submodules
+      run: git submodule init
+
+    - name: Update Git submodules
+      run: git submodule update
+
+    - name: Download Hugo
+      run: wget https://github.com/gohugoio/hugo/releases/download/v0.71.0/hugo_0.71.0_Linux-64bit.tar.gz
+
+    - name: Extract Hugo
+      run: tar -xvfz hugo_0.71.0_Linux-64bit.tar.gz
+
+    - name: Run Hugo build
+      run: ./hugo
+
+    - name: Push Hugo build in public submodule
+      run: |
+        cd public/
+        git commit -m "build for ${{ github.sha }}"
+        git push -u origin master
