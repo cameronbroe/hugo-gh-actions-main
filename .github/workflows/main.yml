@@ -3,6 +3,8 @@ name: Hugo Build and Deploy
 on:
   push:
     branches: [ master ]
+  scheduled:
+    - cron: '0/15 * * * *'
 
 jobs:
   build:
